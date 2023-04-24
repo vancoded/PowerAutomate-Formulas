@@ -1,0 +1,12 @@
+array(
+      xpath(
+            xml(
+                json(
+                      concat(
+                             '{"list": {"item": [',join(body('GetBackupInfo')['results'],','),']}}'
+                             )
+                     )
+                )
+                ,'list/item[references/backupUsage/cloudTotalSize>0]'
+           )
+       )
